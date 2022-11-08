@@ -1,11 +1,11 @@
 name: Release Dev
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: Release Created
 on:
   release:
     types:
       - created
 jobs:
-  Explore-GitHub-Actions:
+  Release-Created:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."

@@ -1,8 +1,11 @@
-name: GitHub Actions Demo
+name: Deploying to Prod
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  release:
+    tags:
+      - refs/tags/new
 jobs:
-  Explore-GitHub-Actions:
+  Deploying-To-Prod:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
