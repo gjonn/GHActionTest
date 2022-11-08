@@ -2,8 +2,8 @@ name: Deploying to Prod
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   release:
-    tags:
-      - "refs/tags/randomtag"
+    name:
+      - "releaseme"
 jobs:
   Deploying-To-Prod:
     runs-on: ubuntu-latest
