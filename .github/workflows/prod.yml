@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   release:
     tags:
-      - "refs/tags/new3"
+      - "refs/tags/randomtag"
 jobs:
   Deploying-To-Prod:
     runs-on: ubuntu-latest
