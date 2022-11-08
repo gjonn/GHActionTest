@@ -1,6 +1,6 @@
 name: Release Dev
 run-name: Release Created
-on:
+#on:
   release:
     types:
       - created
