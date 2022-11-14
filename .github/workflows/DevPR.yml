@@ -1,0 +1,24 @@
+name: Dev PR
+on:
+  # Triggers the workflow on push of any branches except main and preprod
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  DeployingToDev:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I deployed to Dev"
+      - id: bump
+        uses: zwaldowski/match-label-action@v4
+        with:
+          allowed: major, minor, patch
+      - id: next_version
+        uses: zwaldowski/semver-release-action@v3
+        with:
+          bump: ${{ steps.bump.outputs.match }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ncipollo/release-action@v1
+        with:
+          body: "${{ steps.next_version.outputs.version }} has been released.  Patch notes are listed here: "
+          tag: ${{ steps.next_version.outputs.version }}

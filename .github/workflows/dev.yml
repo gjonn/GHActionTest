@@ -1,0 +1,12 @@
+name: Dev Building Policy
+on:
+  # Triggers the workflow on push of any branches except main and preprod
+  push:
+    branches-ignore:
+      - "main"
+      - "preprod"
+jobs:
+  Policy-Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I'm a dev writing a policy"
