@@ -20,6 +20,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "*"
-          body: "I'm Releaseed!"
+          body: "${{ steps.next_version.outputs.version }} has been released.  Patch notes are listed here: "
           tag: ${{ steps.next_version.outputs.version }}
